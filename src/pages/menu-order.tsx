@@ -1,11 +1,11 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import Layout from "../components/layout";
-import { Button, Checkbox, Container, Divider, NumberInput, TextInput } from "@mantine/core";
+import { Button, Container, Divider, NumberInput, TextInput } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { notifications } from "@mantine/notifications";
-import { Menu, Order } from "../lib/models";
+import { Order } from "../lib/models";
 
 export default function OrderCreatePage() {
   const navigate = useNavigate();

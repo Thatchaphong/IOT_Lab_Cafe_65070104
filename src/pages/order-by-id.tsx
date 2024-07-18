@@ -1,10 +1,10 @@
-import { Alert, Badge, Button, Container, Divider } from "@mantine/core";
+import { Alert, Badge, Container, Divider } from "@mantine/core";
 import Layout from "../components/layout";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Order } from "../lib/models";
 import useSWR from "swr";
 import Loading from "../components/loading";
-import { IconAlertTriangleFilled, IconEdit } from "@tabler/icons-react";
+import { IconAlertTriangleFilled } from "@tabler/icons-react";
 
 export default function OrderByIdPage() {
   const { orderId } = useParams();
