@@ -4,6 +4,7 @@ export interface Book {
   author: string;
   year: number;
   story: string;
+  detail: string;
   catagory: string;
   is_published: boolean;
 }
@@ -14,4 +15,18 @@ export interface Student {
   lastname: string;
   birthdate: string;
   gender: boolean;
+}
+
+export interface Menu {
+  id: number;
+  name: string;
+  quantity: number;
+  note: string;
+}
+
+export interface Order {
+  id: number;
+  name: string;
+  quantity: number;
+  note: string;
 }

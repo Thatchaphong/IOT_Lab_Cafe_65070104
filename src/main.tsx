@@ -9,13 +9,21 @@ import { SWRConfig } from "swr";
 import axios from "axios";
 import HomePage from "./pages";
 import { Notifications } from "@mantine/notifications";
-import StudentsPage from "./pages/students";
+import MenusPage from "./pages/menus";
 import BooksPage from "./pages/books";
 import BookByIdPage from "./pages/book-by-id";
 import BookEditById from "./pages/book-edit-by-id";
 import { ModalsProvider } from "@mantine/modals";
 import BookCreatePage from "./pages/book-create";
-import StudentByIdPage from "./pages/student-by-id";
+import MenuByIdPage from "./pages/menu-by-id";
+import MenuCreatePage from "./pages/menu-create";
+// import OrdersPage from "./pages/orders";
+import OrderCreatePage from "./pages/menu-order";
+import OrderByIdPage from "./pages/order-by-id";
+import SeeOrdersPage from "./pages/seeorders";
+import MenuEditById from "./pages/menu-edit-by-id";
+// import SeeOrdersPage from "./pages/seeorders";
+
 
 const theme = createTheme({
   primaryColor: "orange",
@@ -32,16 +40,32 @@ const router = createBrowserRouter([
     element: <BooksPage />,
   },
   {
-    path: "/students",
-    element: <StudentsPage />,
+    path: "/menus",
+    element: <MenusPage />,
   },
   {
-    path: "/students/:studentId",
-    element: <StudentByIdPage />,
+    path: "/orders",
+    element: <SeeOrdersPage />,
+  },
+  {
+    path: "/orders/create",
+    element: <OrderCreatePage />,
+  },
+  {
+    path: "/menus/:menuId",
+    element: <MenuByIdPage />,
+  },
+  {
+    path: "/orders/:orderId",
+    element: <OrderByIdPage />,
   },
   {
     path: "/books/create",
     element: <BookCreatePage />,
+  },
+  {
+    path: "/menus/create",
+    element: <MenuCreatePage />,
   },
   {
     path: "/books/:bookId",
@@ -50,6 +74,10 @@ const router = createBrowserRouter([
   {
     path: "/books/:bookId/edit",
     element: <BookEditById />,
+  },
+  {
+    path: "/menus/:menuId/edit",
+    element: <MenuEditById />,
   },
 ]);
 

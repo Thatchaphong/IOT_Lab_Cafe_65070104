@@ -32,18 +32,24 @@ export default function Layout({ children }: LayoutProps) {
               </Link>
 
               <Link
-                to={"/students"}
+                to={"/menus"}
                 className="flex items-center h-14 px-1 no-underline text-neutral-600 font-semibold text-sm"
               >
-                นักศึกษา
+                เมนู / สั่งเมนู
               </Link>
 
               {/* <Link
-                to={"/menu"}
+                to={"/orders"}
                 className="flex items-center h-14 px-1 no-underline text-neutral-600 font-semibold text-sm"
               >
-                เมนู
+                สั่งเมนู
               </Link> */}
+              <Link
+                to={"/orders"}
+                className="flex items-center h-14 px-1 no-underline text-neutral-600 font-semibold text-sm"
+              >
+                รายการเมนูที่ลูกค้าสั่ง
+              </Link>
             </Group>
 
             <div></div>

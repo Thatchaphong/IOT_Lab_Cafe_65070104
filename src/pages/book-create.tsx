@@ -19,7 +19,8 @@ export default function BookCreatePage() {
       year: 2024,
       story: "",
       catagory: "",
-      is_published: false,
+      detail: "",
+      is_published: false
     },
 
     validate: {
@@ -27,6 +28,7 @@ export default function BookCreatePage() {
       author: isNotEmpty("กรุณาระบุชื่อผู้แต่ง"),
       year: isNotEmpty("กรุณาระบุปีที่พิมพ์หนังสือ"),
       story: isNotEmpty("กรุณาใส่เรื่องย่อ"),
+      detail: isNotEmpty("กรุณาระบุรายละเอียดของหนังสือ"),
       catagory: isNotEmpty("กรุณาระบุหมวดหมู่ของเรื่อง")
     },
   });
@@ -73,8 +75,9 @@ export default function BookCreatePage() {
       <Layout>
         <Container className="mt-8">
           <h1 className="text-xl">เพิ่มหนังสือในระบบ</h1>
-
+          <br />
           <form onSubmit={bookCreateForm.onSubmit(handleSubmit)} className="space-y-8">
+
             <TextInput
               label="ชื่อหนังสือ"
               placeholder="ชื่อหนังสือ"
@@ -85,6 +88,12 @@ export default function BookCreatePage() {
               label="ชื่อผู้แต่ง"
               placeholder="ชื่อผู้แต่ง"
               {...bookCreateForm.getInputProps("author")}
+            />
+
+            <TextInput
+              label="รายละเอียดหนังสือ"
+              placeholder="รายละเอียดหนังสือ"
+              {...bookCreateForm.getInputProps("detail")}
             />
 
             <TextInput
@@ -106,10 +115,6 @@ export default function BookCreatePage() {
               max={new Date().getFullYear() + 1}
               {...bookCreateForm.getInputProps("year")}
             />
-
-            {/* TODO: เพิ่มรายละเอียดหนังสือ */}
-            {/* TODO: เพิ่มเรื่องย่อ */}
-            {/* TODO: เพิ่มหมวดหมู่(s) */}
 
             <Checkbox
               label="เผยแพร่"
