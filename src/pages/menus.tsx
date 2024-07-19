@@ -1,5 +1,5 @@
 import Layout from "../components/layout";
-import cafeBackgroundImage from "../assets/images/bg-cafe-2.jpg";
+import cafeBackgroundImage from "../assets/images/cafebg.jpg";
 import useSWR from "swr";
 import { Menu } from "../lib/models";
 import Loading from "../components/loading";

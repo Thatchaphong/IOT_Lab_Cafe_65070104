@@ -30,7 +30,7 @@ export default function MenuByIdPage() {
           {!!menu && (
             <>
               <h1>{menu.name}</h1>
-              <p className="italic text-neutral-500 mb-4">โดย {menu.name}</p>
+              <p className="italic text-neutral-500 mb-4"></p>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <img
                   src="https://placehold.co/150x200"
@@ -43,7 +43,7 @@ export default function MenuByIdPage() {
                     {menu.detail}
         
                   </p>
-                  <h3>ราคาต่อที่</h3>
+                  <h3>ราคา</h3>
                   <p className="indent-4">
                     {menu.price}
         
