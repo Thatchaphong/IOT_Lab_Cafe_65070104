@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { Menu } from "../lib/models";
 import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../components/layout";
-import { Alert, Button, Container, Divider, TextInput } from "@mantine/core";
+import { Alert, Button, Container, Divider, NumberInput, TextInput } from "@mantine/core";
 import Loading from "../components/loading";
 import { IconAlertTriangleFilled, IconTrash } from "@tabler/icons-react";
 import { isNotEmpty, useForm } from "@mantine/form";
@@ -142,6 +142,16 @@ export default function MenusEditById() {
                   label="ชื่อเมนู"
                   placeholder="ชื่อเมนู"
                   {...menuEditForm.getInputProps("name")}
+                />
+                <TextInput
+                  label="รายละเอียดเมนู"
+                  placeholder="รายละเอียดเมนู"
+                  {...menuEditForm.getInputProps("detail")}
+                />
+                <NumberInput
+                  label="ราคาเมนู"
+                  placeholder="ราคาเมนู"
+                  {...menuEditForm.getInputProps("price")}
                 />
 
 

@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Layout from "../components/layout";
 import { Button, Container, Divider, NumberInput, TextInput } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import { notifications } from "@mantine/notifications";
 import { Order } from "../lib/models";
@@ -10,13 +10,15 @@ import { Order } from "../lib/models";
 export default function OrderCreatePage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { name } = location.state || { name: "" };
+  const { name, price } = location.state || { name: "", price: 0 };
 
   const [isProcessing, setIsProcessing] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(price);
 
   const orderCreateForm = useForm({
     initialValues: {
       name: name,
+      price: price,
       quantity: 1,
       note: ""
     },
@@ -24,6 +26,12 @@ export default function OrderCreatePage() {
       quantity: isNotEmpty("กรุณาระบุจำนวนที่ต้องการ"),
     },
   });
+
+  useEffect(() => {
+    // คำนวณราคาเมื่อ quantity เปลี่ยน
+    const calculatedPrice = orderCreateForm.values.quantity * price;
+    setTotalPrice(calculatedPrice);
+  }, [orderCreateForm.values.quantity, price, orderCreateForm]);
 
   const handleSubmit = async (values: typeof orderCreateForm.values) => {
     try {
@@ -70,9 +78,9 @@ export default function OrderCreatePage() {
           <br />
           <form onSubmit={orderCreateForm.onSubmit(handleSubmit)} className="space-y-8">
             <TextInput
-              label="ชื่อ"
-              placeholder="ชื่อ"
-              {...orderCreateForm.getInputProps("name")}
+              label="ชื่อเมนู"
+              placeholder="ชื่อเมนู"
+              value={orderCreateForm.values.name}
               readOnly
             />
 
@@ -80,6 +88,13 @@ export default function OrderCreatePage() {
               label="จำนวน"
               placeholder="จำนวน"
               {...orderCreateForm.getInputProps("quantity")}
+            />
+            
+            <NumberInput
+              label="ราคา"
+              placeholder="ราคา"
+              value={totalPrice}  // แสดงราคาที่คำนวณได้
+              readOnly
             />
 
             <TextInput

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
-import { Button, Container, Divider, TextInput } from "@mantine/core";
+import { Button, Container, Divider, NumberInput, TextInput } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
@@ -9,28 +9,27 @@ import { Menu } from "../lib/models";
 
 export default function MenuCreatePage() {
   const navigate = useNavigate();
-
   const [isProcessing, setIsProcessing] = useState(false);
 
   const menuCreateForm = useForm({
     initialValues: {
       name: "",
       quantity: 1,
-      note: ""
+      note: "",
+      price: 0,
     },
 
     validate: {
       name: isNotEmpty("กรุณาระบุชื่อเมนู"),
     },
   });
-
   const handleSubmit = async (values: typeof menuCreateForm.values) => {
     try {
       setIsProcessing(true);
       const response = await axios.post<Menu>(`/menus`, values);
       notifications.show({
-        title: "เพิ่มเมนูสำเร็จ",
-        message: "เมนูได้รับการเพิ่มเรียบร้อยแล้ว",
+        title: "เพิ่มข้อมูลหนังสือสำเร็จ",
+        message: "ข้อมูลหนังสือได้รับการเพิ่มเรียบร้อยแล้ว",
         color: "teal",
       });
       navigate(`/menus/${response.data.id}`);
@@ -62,27 +61,34 @@ export default function MenuCreatePage() {
   };
 
   return (
-    <>
-      <Layout>
-        <Container className="mt-8">
-          <h1 className="text-xl">เพิ่มเมนูในระบบ</h1>
-          <br />
-          <form onSubmit={menuCreateForm.onSubmit(handleSubmit)} className="space-y-8">
-            <TextInput
-              label="ชื่อเมนู"
-              placeholder="ชื่อเมนู"
-              {...menuCreateForm.getInputProps("name")}
-            />
+    <Layout>
+      <Container className="mt-8">
+        <h1 className="text-xl">เพิ่มเมนูในระบบ</h1>
+        <br />
+        <form onSubmit={menuCreateForm.onSubmit(handleSubmit)} className="space-y-8">
+          <TextInput
+            label="ชื่อเมนู"
+            placeholder="ชื่อเมนู"
+            {...menuCreateForm.getInputProps("name")}
+          />
+          <TextInput
+            label="รายละเอียดเมนู"
+            placeholder="รายละเอียดเมนู"
+            {...menuCreateForm.getInputProps("detail")}
+          />
+          <NumberInput
+            label="ราคา"
+            placeholder="ราคา"
+            {...menuCreateForm.getInputProps("price")}
+          />
 
+          <Divider />
 
-            <Divider />
-
-            <Button type="submit" loading={isProcessing}>
-              บันทึกข้อมูล
-            </Button>
-          </form>
-        </Container>
-      </Layout>
-    </>
+          <Button type="submit" loading={isProcessing}>
+            บันทึกข้อมูล
+          </Button>
+        </form>
+      </Container>
+    </Layout>
   );
 }

@@ -40,12 +40,14 @@ export default function MenuByIdPage() {
                 <div className="col-span-2 px-4 space-y-2 py-4">
                   <h3>รายละเอียดเมนู</h3>
                   <p className="indent-4">
-                    {menu.name}
+                    {menu.detail}
         
                   </p>
-                  
-
-    
+                  <h3>ราคาต่อที่</h3>
+                  <p className="indent-4">
+                    {menu.price}
+        
+                  </p>
                 </div>
               </div>
 

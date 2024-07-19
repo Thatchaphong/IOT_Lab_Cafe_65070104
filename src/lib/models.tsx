@@ -22,6 +22,8 @@ export interface Menu {
   name: string;
   quantity: number;
   note: string;
+  price: number;
+  detail: string;
 }
 
 export interface Order {
@@ -29,4 +31,5 @@ export interface Order {
   name: string;
   quantity: number;
   note: string;
+  price: number;
 }

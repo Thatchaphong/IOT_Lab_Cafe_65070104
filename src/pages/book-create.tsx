@@ -116,6 +116,7 @@ export default function BookCreatePage() {
               {...bookCreateForm.getInputProps("year")}
             />
 
+
             <Checkbox
               label="เผยแพร่"
               {...bookCreateForm.getInputProps("is_published", {

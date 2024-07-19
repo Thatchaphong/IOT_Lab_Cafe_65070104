@@ -55,7 +55,7 @@ export default function SeeOrdersPage() {
                 </div>
 
                 <div className="flex justify-end px-4 pb-2">
-                  <Button component={Link} to={`/books/${order.id}`} size="xs" variant="default">
+                  <Button component={Link} to={`/orders/${order.id}`} size="xs" variant="default">
                     ดูรายละเอียด
                   </Button>
                 </div>
