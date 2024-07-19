@@ -1,4 +1,5 @@
 import { Alert, Button, Container, Divider } from "@mantine/core";
+import coffee from "../assets/images/coffee.png";
 import Layout from "../components/layout";
 import { useNavigate, useParams } from "react-router-dom";
 import { Order } from "../lib/models";
@@ -16,7 +17,6 @@ export default function OrderByIdPage() {
   const navigate = useNavigate();
   const { data: order, isLoading, error } = useSWR<Order>(`/orders/${orderId}`);
 
-  // คำนวณราคาที่ต้องชำระ
   const totalPrice = order ? order.price * order.quantity : 0;
 
   const handleDelete = async () => {
@@ -75,10 +75,9 @@ export default function OrderByIdPage() {
           {!!order && (
             <>
               <h1>{order.name}</h1>
-              <p className="italic text-neutral-500 mb-4">โดย {order.name}</p>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <img
-                  src="https://placehold.co/150x200"
+                  src={coffee}
                   alt={order.name}
                   className="w-full object-cover aspect-[3/4]"
                 />
@@ -100,7 +99,7 @@ export default function OrderByIdPage() {
 
                   <h3>ราคารวม</h3>
                   <p className="indent-4">
-                    {totalPrice} {/* ราคาทั้งหมด */}
+                    {totalPrice}
                   </p>
                 </div>
               </div>

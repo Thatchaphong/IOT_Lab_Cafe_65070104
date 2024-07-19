@@ -38,12 +38,6 @@ export default function Layout({ children }: LayoutProps) {
                 เมนู / สั่งเมนู
               </Link>
 
-              {/* <Link
-                to={"/orders"}
-                className="flex items-center h-14 px-1 no-underline text-neutral-600 font-semibold text-sm"
-              >
-                สั่งเมนู
-              </Link> */}
               <Link
                 to={"/orders"}
                 className="flex items-center h-14 px-1 no-underline text-neutral-600 font-semibold text-sm"
@@ -55,6 +49,7 @@ export default function Layout({ children }: LayoutProps) {
             <div></div>
           </div>
         </header>
+        
       </Box>
 
       <main>{children}</main>

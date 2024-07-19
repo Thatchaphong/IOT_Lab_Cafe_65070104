@@ -1,4 +1,5 @@
 import { Alert, Badge, Button, Container, Divider } from "@mantine/core";
+import bookpic from "../assets/images/Book.jpg";
 import Layout from "../components/layout";
 import { Link, useParams } from "react-router-dom";
 import { Book } from "../lib/models";
@@ -33,7 +34,7 @@ export default function BookByIdPage() {
               <p className="italic text-neutral-500 mb-4">โดย {book.author}</p>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <img
-                  src="https://placehold.co/150x200"
+                  src={bookpic}
                   alt={book.title}
                   className="w-full object-cover aspect-[3/4]"
                 />

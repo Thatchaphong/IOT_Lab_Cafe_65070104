@@ -17,12 +17,12 @@ import { ModalsProvider } from "@mantine/modals";
 import BookCreatePage from "./pages/book-create";
 import MenuByIdPage from "./pages/menu-by-id";
 import MenuCreatePage from "./pages/menu-create";
-// import OrdersPage from "./pages/orders";
+
 import OrderCreatePage from "./pages/menu-order";
 import OrderByIdPage from "./pages/order-by-id";
 import SeeOrdersPage from "./pages/seeorders";
 import MenuEditById from "./pages/menu-edit-by-id";
-// import SeeOrdersPage from "./pages/seeorders";
+
 
 
 const theme = createTheme({

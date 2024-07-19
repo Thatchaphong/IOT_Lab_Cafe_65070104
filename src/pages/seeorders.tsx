@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
-import cafeBackgroundImage from "../assets/images/cafebg2.jpg";
+import cafeBackgroundImage from "../assets/images/bg-cafe-2.jpg";
+import coffee from "../assets/images/coffee.png";
 import useSWR from "swr";
 import { Order } from "../lib/models";
 import Loading from "../components/loading";
@@ -9,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export default function SeeOrdersPage() {
   const { data: orders, error } = useSWR<Order[]>("/orders");
-
+  
   return (
     <>
       <Layout>
@@ -45,15 +46,15 @@ export default function SeeOrdersPage() {
             {orders?.map((order) => (
               <div className="border border-solid border-neutral-200" key={order.name}>
                 <img
-                  src="https://placehold.co/150x200"
+                  src={coffee}
                   alt={order.name}
                   className="w-full object-cover aspect-[3/4]"
                 />
                 <div className="p-4">
                   <h2 className="text-lg font-semibold line-clamp-2">{order.name}</h2>
-                  <p className="text-xs text-neutral-500">โดย {order.name}</p>
+                  <p className="text-s text-neutral-500">จำนวน {order.quantity} ที่</p>
+                  
                 </div>
-
                 <div className="flex justify-end px-4 pb-2">
                   <Button component={Link} to={`/orders/${order.id}`} size="xs" variant="default">
                     ดูรายละเอียด

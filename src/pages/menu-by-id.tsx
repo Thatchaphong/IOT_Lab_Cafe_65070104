@@ -1,4 +1,5 @@
 import { Alert, Button, Container, Divider } from "@mantine/core";
+import coffee from "../assets/images/coffee.png";
 import Layout from "../components/layout";
 import { Link, useParams } from "react-router-dom";
 import { Menu } from "../lib/models";
@@ -33,7 +34,7 @@ export default function MenuByIdPage() {
               <p className="italic text-neutral-500 mb-4"></p>
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <img
-                  src="https://placehold.co/150x200"
+                  src={coffee}
                   alt={menu.name}
                   className="w-full object-cover aspect-[3/4]"
                 />
