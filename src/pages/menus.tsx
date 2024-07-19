@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
 import cafeBackgroundImage from "../assets/images/cafebg.jpg";
+import coffee from "../assets/images/Coffee.jpg";
 import useSWR from "swr";
 import { Menu } from "../lib/models";
 import Loading from "../components/loading";
@@ -56,7 +57,7 @@ export default function MenusPage() {
           {menus?.map((menu) => (
             <div className="border border-solid border-neutral-200" key={menu.id}>
               <img
-                src={"https://placehold.co/150x200"}
+                src={coffee}
                 alt={menu.name}
                 className="w-full object-cover aspect-[3/4]"
               />
