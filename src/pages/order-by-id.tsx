@@ -24,8 +24,8 @@ export default function OrderByIdPage() {
       setIsProcessing(true);
       await axios.delete(`/orders/${orderId}`);
       notifications.show({
-        title: "ลบหนังสือสำเร็จ",
-        message: "ลบหนังสือเล่มนี้ออกจากระบบเรียบร้อยแล้ว",
+        title: "ลบออเดอร์สำเร็จ",
+        message: "ลบออเดอร์นี้ออกจากระบบเรียบร้อยแล้ว",
         color: "red",
       });
       navigate("/orders");
@@ -33,8 +33,8 @@ export default function OrderByIdPage() {
       if (error instanceof AxiosError) {
         if (error.response?.status === 404) {
           notifications.show({
-            title: "ไม่พบข้อมูลหนังสือ",
-            message: "ไม่พบข้อมูลหนังสือที่ต้องการลบ",
+            title: "ไม่พบข้อมูลออเดอร์",
+            message: "ไม่พบข้อมูลออเดอร์ที่ต้องการลบ",
             color: "red",
           });
         } else if (error.response?.status || 500 >= 500) {
@@ -111,10 +111,10 @@ export default function OrderByIdPage() {
                     size="xs"
                     onClick={() => {
                       modals.openConfirmModal({
-                        title: "คุณต้องการลบหนังสือเล่มนี้ใช่หรือไม่",
+                        title: "คุณต้องการลบออเดอร์นี้ใช่หรือไม่",
                         children: (
                           <span className="text-xs">
-                            เมื่อคุณดำนเนินการลบหนังสือเล่มนี้แล้ว จะไม่สามารถย้อนกลับได้
+                            เมื่อคุณดำนเนินการลบออเดอร์นี้แล้ว จะไม่สามารถย้อนกลับได้
                           </span>
                         ),
                         labels: { confirm: "ลบ", cancel: "ยกเลิก" },
@@ -127,7 +127,7 @@ export default function OrderByIdPage() {
                       });
                     }}
                   >
-                    ลบหนังสือนี้
+                    ลบออเดอร์นี้
                   </Button>
             </>
           )}

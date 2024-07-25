@@ -28,8 +28,8 @@ export default function MenuCreatePage() {
       setIsProcessing(true);
       const response = await axios.post<Menu>(`/menus`, values);
       notifications.show({
-        title: "เพิ่มข้อมูลหนังสือสำเร็จ",
-        message: "ข้อมูลหนังสือได้รับการเพิ่มเรียบร้อยแล้ว",
+        title: "เพิ่มเมนูสำเร็จ",
+        message: "เมนูได้รับการเพิ่มเรียบร้อยแล้ว",
         color: "teal",
       });
       navigate(`/menus/${response.data.id}`);
